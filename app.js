@@ -30,7 +30,7 @@ app.use("/", indexRouter);
 
 app.use("/nature", apiNatureRouter);
 app.use("/country", apiCountryRouter);
-
+Access - Control - Allow - Origin;
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
   next(createError(404));

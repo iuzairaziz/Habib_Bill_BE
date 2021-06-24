@@ -6,7 +6,7 @@ const { Nature } = require("../../model/nature");
 const auth = require("../../middlewares/auth");
 
 /* Get All Designations And Users */
-router.get("/show-nature", auth, async (req, res) => {
+router.get("/show-nature", async (req, res) => {
   let page = Number(req.query.page ? req.query.page : 1);
   let perPage = Number(req.query.perPage ? req.query.perPage : 10);
   let skipRecords = perPage * (page - 1);
@@ -15,7 +15,7 @@ router.get("/show-nature", auth, async (req, res) => {
 });
 
 /*Add new Designation*/
-router.post("/create-nature", auth, async (req, res) => {
+router.post("/create-nature", async (req, res) => {
   let nature = await Nature.findOne({
     name: req.body.name,
   });
@@ -33,7 +33,7 @@ router.post("/create-nature", auth, async (req, res) => {
 });
 
 // Update Designation
-router.put("/:id", auth, async (req, res) => {
+router.put("/:id", async (req, res) => {
   try {
     let nature = await Nature.findById(req.params.id);
     console.log(nature);
@@ -48,7 +48,7 @@ router.put("/:id", auth, async (req, res) => {
 });
 
 // Delete Designation
-router.delete("/:id", auth, async (req, res) => {
+router.delete("/:id", async (req, res) => {
   try {
     let nature = await Nature.findByIdAndDelete(req.params.id);
     if (!nature) {

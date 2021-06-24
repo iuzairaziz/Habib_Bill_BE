@@ -1,5 +1,3 @@
 {
-    "db": "mongodb+srv://sarosh:zaqxswcde1@cluster0.zk5ap.mongodb.net/test",
-    "jwtPrivateKey" : "SomePrivateKey"
-
+  "db": "mongodb+srv://iuzairaziz:uzi466809066@cluster0.lthe1.mongodb.net/Habib-Bill?retryWrites=true&w=majority"
 }

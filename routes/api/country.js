@@ -6,7 +6,7 @@ var router = express.Router();
 const { Country } = require("../../model/country");
 
 /* Get All Designations And Users */
-router.get("/show-country", auth, async (req, res) => {
+router.get("/show-country", async (req, res) => {
   let page = Number(req.query.page ? req.query.page : 1);
   let perPage = Number(req.query.perPage ? req.query.perPage : 10);
   let skipRecords = perPage * (page - 1);
@@ -15,7 +15,7 @@ router.get("/show-country", auth, async (req, res) => {
 });
 
 /*Add new Designation*/
-router.post("/create-country", auth, async (req, res) => {
+router.post("/create-country", async (req, res) => {
   let country = await Country.findOne({
     name: req.body.name,
   });
@@ -33,7 +33,7 @@ router.post("/create-country", auth, async (req, res) => {
 });
 
 // Update Designation
-router.put("/:id", auth, async (req, res) => {
+router.put("/:id", async (req, res) => {
   try {
     let country = await Country.findById(req.params.id);
     console.log(country);
@@ -49,7 +49,7 @@ router.put("/:id", auth, async (req, res) => {
 });
 
 // Delete Designation
-router.delete("/:id", auth, async (req, res) => {
+router.delete("/:id", async (req, res) => {
   try {
     let country = await Country.findByIdAndDelete(req.params.id);
     if (!country) {

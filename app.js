@@ -9,26 +9,10 @@ var mongoose = require("mongoose");
 var config = require("config");
 
 var indexRouter = require("./routes/index");
-var apiUserRouter = require("./routes/api/users");
-var apiProjectRouter = require("./routes/api/project");
-var apiTasksRouter = require("./routes/api/tasks");
-var apiDesignationRouter = require("./routes/api/designation");
-var apiTechnologiesRouter = require("./routes/api/technologies");
-var apiClientRouter = require("./routes/api/client");
+
 var apiNatureRouter = require("./routes/api/nature");
-var apiPlatformRouter = require("./routes/api/platform");
-var apiServiceRouter = require("./routes/api/service");
+
 var apiCountryRouter = require("./routes/api/country");
-var apiUserProfileRouter = require("./routes/api/userProfile");
-var apiTimesheetRouter = require("./routes/api/timesheet");
-var apiCurrencyRouter = require("./routes/api/currency");
-var apiStatusRouter = require("./routes/api/status");
-var apiExpenseCategoryRouter = require("./routes/api/expenseCategory");
-var apiExpenseRouter = require("./routes/api/expense");
-var apiCommentRouter = require("./routes/api/comments");
-var apiMachineRouter = require("./routes/api/machine");
-var apiAccessoriesRouter = require("./routes/api/accessories");
-var apiHistoryRouter = require("./routes/api/history");
 
 var app = express();
 
@@ -44,26 +28,9 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, "public")));
 
 app.use("/", indexRouter);
-app.use("/users", apiUserRouter);
-app.use("/projects", apiProjectRouter);
-app.use("/tasks", apiTasksRouter);
-app.use("/designation", apiDesignationRouter);
-app.use("/technologies", apiTechnologiesRouter);
-app.use("/client", apiClientRouter);
+
 app.use("/nature", apiNatureRouter);
-app.use("/platform", apiPlatformRouter);
-app.use("/service", apiServiceRouter);
 app.use("/country", apiCountryRouter);
-app.use("/profile", apiUserProfileRouter);
-app.use("/timesheet", apiTimesheetRouter);
-app.use("/currency", apiCurrencyRouter);
-app.use("/status", apiStatusRouter);
-app.use("/expense-category", apiExpenseCategoryRouter);
-app.use("/expense", apiExpenseRouter);
-app.use("/comment", apiCommentRouter);
-app.use("/machine", apiMachineRouter);
-app.use("/accessory", apiAccessoriesRouter);
-app.use("/history", apiHistoryRouter);
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {

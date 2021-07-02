@@ -7,10 +7,7 @@ const auth = require("../../middlewares/auth");
 
 /* Get All Designations And Users */
 router.get("/show-nature", async (req, res) => {
-  let page = Number(req.query.page ? req.query.page : 1);
-  let perPage = Number(req.query.perPage ? req.query.perPage : 10);
-  let skipRecords = perPage * (page - 1);
-  let nature = await Nature.find().skip(skipRecords).limit(perPage);
+  let nature = await Nature.find();
   return res.send(nature);
 });
 

@@ -7,10 +7,7 @@ const { Country } = require("../../model/country");
 
 /* Get All Designations And Users */
 router.get("/show-country", async (req, res) => {
-  let page = Number(req.query.page ? req.query.page : 1);
-  let perPage = Number(req.query.perPage ? req.query.perPage : 10);
-  let skipRecords = perPage * (page - 1);
-  let country = await Country.find().skip(skipRecords).limit(perPage);
+  let country = await Country.find();
   return res.send(country);
 });
 
